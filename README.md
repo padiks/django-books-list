@@ -316,7 +316,9 @@ $(document).ready(function () {
 </html>
 ```
 
---- SQLite
+--- 
+
+### SQLite
 
 The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
 
@@ -351,4 +353,5 @@ $ python manage.py shell
 ## 📄 License
 
 This project is for **learning and educational use**.
+
 Feel free to explore, extend, and build upon it.
