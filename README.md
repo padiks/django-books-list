@@ -48,11 +48,18 @@ project_folder/
 
 ### 1. Install Dependencies
 
-Make sure you have **Python 3** and **Django** installed. If not, install them via:
+Make sure you have **Python 3** and **Django** installed. If you don't, it's recommended to set up a virtual environment to keep your dependencies isolated. Here’s how you can do it:
 
 ```bash
-pip install django
+$ mkdir <project-folder>
+$ cd <project-folder>
+$ python3 -m venv venv              # Create a virtual environment
+$ source venv/bin/activate          # Activate the virtual environment (on Windows use `venv\Scripts\activate`)
+(venv) $ pip install --upgrade pip
+(venv) $ pip install django         # Install Django within the virtual environment
 ```
+
+This approach keeps your project's dependencies separate from the global Python environment. If you choose not to use a virtual environment, you can install Django globally, but using a virtual environment is highly recommended to avoid version conflicts.
 
 Then install any other requirements you might have (add them to `requirements.txt` if needed).
 
@@ -61,8 +68,8 @@ Then install any other requirements you might have (add them to `requirements.tx
 Run the following commands to set up the database:
 
 ```bash
-python manage.py makemigrations
-python manage.py migrate
+(venv) $ python manage.py makemigrations
+(venv) $ python manage.py migrate
 ```
 
 ### 3. Create a Superuser
@@ -70,7 +77,7 @@ python manage.py migrate
 To access the admin panel, create a superuser:
 
 ```bash
-python manage.py createsuperuser
+(venv) $ python manage.py createsuperuser
 ```
 
 Follow the prompts to create the superuser.
@@ -80,7 +87,7 @@ Follow the prompts to create the superuser.
 Start the server:
 
 ```bash
-python manage.py runserver
+(venv) $ python manage.py runserver
 ```
 
 Visit `http://127.0.0.1:8000/` in your browser.
