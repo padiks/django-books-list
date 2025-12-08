@@ -14,33 +14,33 @@ Available login credentials:
 
 ```plaintext
 project_folder/
-├── db.sqlite3               # SQLite database
+├── db.sqlite3                 # SQLite database
 ├── manage.py
 ├── core/
-│   ├── settings.py          # Django settings
-│   └── urls.py              # URL routing for the project
+│   ├── settings.py            # Django settings
+│   └── urls.py                # URL routing for the project
 ├── templates/
-│   └── base.html            # Global base layout
+│   └── base.html              # Global base layout
 │
 └── static/
 │   ├── css/
-│   │   └── components.css   # Global Tailwind CSS
+│   │   └── components.css     # Global Tailwind CSS
 │   └── img/
-│       └── favicon.png      # Global images
+│       └── favicon.png        # Global images
 └── apps/
-    ├── categories/          # Categories feature
-    │   ├── apps.py          # App configuration
-    │   ├── views.py         # View logic for categories
-    │   ├── urls.py          # URL routing for categories
+    ├── categories/            # Categories feature
+    │   ├── apps.py            # App configuration
+    │   ├── views.py           # View logic for categories
+    │   ├── urls.py            # URL routing for categories
     │   └── templates/
     │       └── categories/
     │           ├── form.html  # Form for adding/editing categories
     │           ├── index.html # List of all categories
     │           └── view.html  # Detailed view for a category
-    └── books/                # Books feature (coming later)
-        ├── apps.py           # App configuration
-        ├── views.py          # View logic for books
-        ├── urls.py           # URL routing for books
+    └── books/                 # Books feature (coming later)
+        ├── apps.py            # App configuration
+        ├── views.py           # View logic for books
+        ├── urls.py            # URL routing for books
         └── templates/
             └── books/
                 └── index.html # List of books
@@ -337,5 +337,4 @@ $(document).ready(function () {
 ## 📄 License
 
 This project is for **learning and educational use**.
-
 Feel free to explore, extend, and build upon it.
