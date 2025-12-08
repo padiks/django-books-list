@@ -1,0 +1,47 @@
+<!-- apps/categories/templates/categories/index.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="bg-white shadow-lg rounded-lg p-6 mb-6 max-w-5xl mx-auto">
+    <h4 class="text-center text-lg font-semibold mb-4">{{ title }}</h4>
+
+    <div class="flex flex-wrap items-center gap-2 mb-3 relative">
+        <a href="{% url 'categories:add' %}" class="bg-green-500 hover:bg-green-600 text-white text-xs font-medium px-3 py-1 rounded absolute right-6">
+            Add Category
+        </a>
+    </div>
+
+    <div class="overflow-x-auto text-sm mt-2">
+        <table id="itemsTable" class="min-w-full text-left border border-gray-200">
+            <thead class="bg-gray-100 text-gray-700 text-xs uppercase">
+                <tr>
+                    <th class="px-2 py-1 border">ID</th>
+                    <th class="px-2 py-1 border">Name</th>
+                    <th class="px-2 py-1 border">Description</th>
+                    <th class="px-2 py-1 border w-28">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+                {% for category in categories %}
+                <tr class="hover:bg-gray-50">
+                    <td class="px-2 py-1 border">{{ forloop.counter }}</td>
+                    <td class="px-2 py-1 border">{{ category.name }}</td>
+                    <td class="px-2 py-1 border">{{ category.description|default:"-" }}</td>
+                    <td class="px-2 py-1 border flex gap-1 whitespace-nowrap">
+                        <a href="{% url 'categories:view' category.id %}" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">View</a>
+                        <a href="{% url 'categories:edit' category.id %}" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">Edit</a>
+                        <a href="{% url 'categories:delete' category.id %}" onclick="return confirm('Delete this record?')" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-gray-500 px-2 py-2">No categories found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

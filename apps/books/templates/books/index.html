@@ -1,0 +1,43 @@
+{# apps/books/templates/books/index.html #}
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <h4 class="text-center text-lg font-semibold mb-4">{{ title }}</h4>
+
+        <div class="flex flex-wrap items-center gap-2 mb-3 relative">
+            <a href="/movements/add/" class="bg-green-500 hover:bg-green-600 text-white text-xs font-medium px-3 py-1 rounded absolute right-6">Add Books</a>
+        </div>
+
+        <div class="overflow-x-auto text-sm mt-2">
+            <table id="itemsTable" class="min-w-full text-sm text-left border border-gray-200">
+                <thead class="bg-gray-100 text-gray-700 text-xs uppercase">
+                    <tr>
+                        <th class="px-2 py-1 border">ID</th>
+                        <th class="px-2 py-1 border">Published</th>
+                        <th class="px-2 py-1 border">Title</th>
+                        <th class="px-2 py-1 border">Author</th>
+                        <th class="px-2 py-1 border">Category</th>
+                        <th class="px-2 py-1 border w-28">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-2 py-1 border">1</td>
+                        <td class="px-2 py-1 border">November 7, 2017</td>
+                        <td class="px-2 py-1 border">Apocalypse Bringer Mynoghra: World Conquest Starts with the Civilization of Ruin</td>
+                        <td class="px-2 py-1 border">Fefu Kazuno</td>
+                        <td class="px-2 py-1 border">Light Novel</td>
+                        <td class="px-2 py-1 border flex gap-1 whitespace-nowrap">
+							<a href="/summary/" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">View</a>
+							<a href="/summary/" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">Edit</a>
+                            <a href="/movements/delete/2/" onclick="return confirm('Delete this record?')" class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

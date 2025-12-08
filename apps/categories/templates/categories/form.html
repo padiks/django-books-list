@@ -1,0 +1,69 @@
+{# apps/categories/templates/categories/form.html #}
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-6">
+
+    <!-- Header -->
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-gray-800">
+            {{ title }}
+        </h2>
+        <p class="text-sm text-gray-500">
+            Fill in the information below
+        </p>
+    </div>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+
+        <!-- Name -->
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 items-center">
+            <label for="{{ form.name.id_for_label }}"
+                   class="text-sm font-medium text-gray-500">
+                Name
+            </label>
+            <div class="sm:col-span-2">
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <p class="text-xs text-red-600 mt-1">
+                        {{ form.name.errors.0 }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 items-center">
+            <label for="{{ form.description.id_for_label }}"
+                   class="text-sm font-medium text-gray-500">
+                Description
+            </label>
+            <div class="sm:col-span-2">
+                {{ form.description }}
+                {% if form.description.errors %}
+                    <p class="text-xs text-red-600 mt-1">
+                        {{ form.description.errors.0 }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="pt-6 flex gap-2">
+            <button type="submit"
+                    class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded hover:bg-gray-100">
+                Save
+            </button>
+
+            <a href="{% url 'categories:index' %}"
+               class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded hover:bg-gray-100">
+                Cancel
+            </a>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} - Toshokan</title>
+<link href="{% static 'img/favicon.png' %}" rel="icon" type="image/x-icon">
+<link href="{% static 'css/components.css' %}?v=1.0.0" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-3 flex items-center">   
+    <h1 class="text-xl font-semibold text-gray-800">Toshokan</h1>
+    <nav class="ml-8 mt-1.5 flex gap-4 text-sm font-medium">
+      <a href="{% url 'books:index' %}" class="text-gray-600 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-400 transition">Books</a>
+      <a href="{% url 'categories:index' %}" class="text-gray-600 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-400 transition">Categories</a>
+      <a href="{% url 'admin:index' %}" class="text-gray-600 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-400 transition">Admin</a>
+    </nav>
+  </div>
+</header>
+<main class="container mx-auto px-4 my-6">
+  {% block content %}{% endblock %}
+</main>
+<footer></footer>
+<!-- Optional: jQuery + DataTables JS for interactivity -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function () {
+  $('#itemsTable').DataTable({
+    "pageLength": 10,
+    "lengthMenu": [5, 10, 20, 50],
+  });
+});
+</script>
+</body>
+</html>
