@@ -4,12 +4,6 @@ A Django project designed to learn the basics of working with databases, impleme
 
 In addition, the project uses **DataTables** to enhance the display of data in tables, providing interactive features such as search, sorting, and pagination—making it more efficient and user-friendly when managing large datasets.
 
-The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
-
-Available login credentials:
-
-* **Admin account:** `admin` / `root`
-
 ## Project Structure
 
 ```plaintext
@@ -321,6 +315,26 @@ $(document).ready(function () {
 </body>
 </html>
 ```
+
+--- SQLite
+
+The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
+
+Available login credentials:
+
+* **User account:** `user` / `@User123`
+* **Admin account:** `admin` / `root`
+
+```
+$ python manage.py shell
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.get(username='user')
+>>> user.set_password('@User123')
+>>> user.save()
+>>> exit()
+```
+
+> This snippet demonstrates how to set or reset a user’s password in Django via the shell. It retrieves an existing user by username, updates their password securely using Django’s hashing mechanism, and saves the changes so the user can log in with the new password.
 
 ---
 
