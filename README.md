@@ -1,6 +1,8 @@
-# Books List (Django + Tailwind)
+## **Books List (Django + Tailwind + DataTable)**
 
 A Django project designed to learn the basics of working with databases, implementing CRUD operations, and integrating **Tailwind CSS** for responsive and clean front-end styling. This project includes features for managing books and categories, providing a simple introduction to database management and web development with Django and Tailwind.
+
+In addition, the project uses **DataTables** to enhance the display of data in tables, providing interactive features such as search, sorting, and pagination—making it more efficient and user-friendly when managing large datasets.
 
 The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
 
