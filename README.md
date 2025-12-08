@@ -324,12 +324,12 @@ $(document).ready(function () {
 
 ---
 
-
 ### Notes:
 
 * **Categories**: Categories management with add, edit, view, and delete functionality.
 * **Tailwind Styling**: Clean, responsive layout utilizing Tailwind CSS.
 * **Django Admin**: Admin interface for managing categories through Django's built-in admin panel.
+* **Modular Structure**: The project is structured in a modular and scalable way. If you need to add another module (e.g., Books), you can simply copy the `categories` folder, adjust the necessary files, and adapt it according to your new module.
 * **Templates**: Other templates (e.g., for Categories & Books) can be viewed once the project is downloaded and set up locally.
 
 ---
