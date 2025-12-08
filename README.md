@@ -54,7 +54,7 @@ Make sure you have **Python 3** and **Django** installed. If you don't, it's rec
 $ mkdir <project-folder>
 $ cd <project-folder>
 $ python3 -m venv venv              # Create a virtual environment
-$ source venv/bin/activate          # Activate the virtual environment (on Windows use `venv\Scripts\activate`)
+$ source venv/bin/activate          # Activate the virtual environment (Debian)
 (venv) $ pip install --upgrade pip
 (venv) $ pip install django         # Install Django within the virtual environment
 ```
