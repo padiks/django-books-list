@@ -1,3 +1,4 @@
+# apps/categories/apps.py
 from django.apps import AppConfig
 
 # Must match with `core/settings.py`

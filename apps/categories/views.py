@@ -12,6 +12,13 @@ def index(request):
     })
 
 
+def view_record(request, pk):
+    category = get_object_or_404(Categories, pk=pk)
+    return render(request, 'categories/view.html', {  # create view.html template
+        'title': f'View Category: {category.name}',
+        'category': category,
+    })
+
 def add_record(request):
     if request.method == 'POST':
         form = CategoriesForm(request.POST)
@@ -25,15 +32,6 @@ def add_record(request):
         'title': 'Add Category',
         'form': form,
     })
-
-
-def view_record(request, pk):
-    category = get_object_or_404(Categories, pk=pk)
-    return render(request, 'categories/view.html', {  # create view.html template
-        'title': f'View Category: {category.name}',
-        'category': category,
-    })
-
 
 def edit_record(request, pk):
     category = get_object_or_404(Categories, pk=pk)
@@ -56,6 +54,9 @@ def edit_record(request, pk):
         'form': form,
     })
 
+# from django.http import HttpResponse
+# def delete_record(request, pk):
+#    return HttpResponse("Delete is temporarily disabled.")
 
 def delete_record(request, pk):
     category = get_object_or_404(Categories, pk=pk)

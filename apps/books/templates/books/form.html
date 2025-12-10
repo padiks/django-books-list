@@ -1,0 +1,46 @@
+{# apps/books/templates/books/form.html #}
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-6">
+
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-gray-800">{{ title }}</h2>
+        <p class="text-sm text-gray-500">Fill in the information below</p>
+    </div>
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 items-center">
+            <label for="{{ field.id_for_label }}"
+                   class="text-sm font-medium text-gray-500">
+                {{ field.label }}
+            </label>
+            <div class="sm:col-span-2">
+                {{ field }}
+                {% if field.errors %}
+                <p class="text-xs text-red-600 mt-1">
+                    {{ field.errors.0 }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="pt-6 flex gap-2">
+            <button type="submit"
+                    class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded hover:bg-gray-100">
+                Save
+            </button>
+            <a href="{% url 'books:index' %}"
+               class="border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded hover:bg-gray-100">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

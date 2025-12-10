@@ -1,3 +1,4 @@
+# apps/categories/models.py
 from django.db import models
 
 class Categories(models.Model):
