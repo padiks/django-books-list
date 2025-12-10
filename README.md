@@ -31,7 +31,7 @@ project_folder/
     │           ├── form.html  # Form for adding/editing categories
     │           ├── index.html # List of all categories
     │           └── view.html  # Detailed view for a category
-    └── books/                 # Books feature (coming later)
+    └── books/                 # Books feature
         ├── apps.py            # App configuration
         ├── views.py           # View logic for books
         ├── urls.py            # URL routing for books
