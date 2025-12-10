@@ -314,8 +314,21 @@ urlpatterns = [
 <script>
 $(document).ready(function () {
   $('#itemsTable').DataTable({
-    "pageLength": 10,
-    "lengthMenu": [5, 10, 20, 50],
+    pageLength: 5,
+    lengthMenu: [5, 10, 20, 50],
+    pagingType: "full_numbers", // Previous, numbers, Next
+    drawCallback: function () {
+      // Tailwind classes for pagination buttons
+      $('.dataTables_paginate .paginate_button').each(function () {
+        $(this).addClass(
+          'border border-gray-300 text-gray-700 px-2 py-0.5 rounded hover:bg-gray-100'
+        );
+      });
+      // Optional: highlight active page
+      $('.dataTables_paginate .paginate_button.current').addClass(
+        'bg-gray-200 font-semibold'
+      );
+    }
   });
 });
 </script>
