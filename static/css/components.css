@@ -35,3 +35,29 @@
 .form-textarea {
     @apply border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
+
+/* DataTables Tailwind + custom CSS */
+.overflow-x-auto::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.overflow-x-auto {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Mobile-friendly horizontal scroll without visible scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.overflow-x-auto {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Optional: allow table to shrink a bit on very small screens */
+#itemsTable {
+    min-width: 0;
+    width: 100%;
+    table-layout: auto; /* Let columns shrink naturally */
+}
