@@ -316,9 +316,7 @@ $(document).ready(function () {
 </html>
 ```
 
---- 
-
-### SQLite
+--- SQLite
 
 The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
 
@@ -350,8 +348,31 @@ $ python manage.py shell
 
 ---
 
+### ⚠️ Disclaimer / Additional Note
+
+This project demonstrates a **basic Django CRUD (Create, Read, Update, Delete) implementation** intended as a **starting reference** for building database-driven applications or for learning how to structure a clean Django project.
+
+It focuses on:
+
+* Clear and minimal CRUD patterns
+* Proper app modularization
+* Simple, readable code suitable for beginners
+
+This project **does not include advanced features** such as:
+
+* User authentication or login systems
+* Role-based or permission-based access control
+* API endpoints
+* Advanced security or production-level configurations
+
+If you require authentication, authorization, or a more complete system setup, you can refer to my other project here:
+👉 [https://github.com/padiks/django-modular-project](https://github.com/padiks/django-modular-project)
+
+That repository builds on the same modular principles while introducing more advanced Django features.
+
+---
+
 ## 📄 License
 
 This project is for **learning and educational use**.
-
 Feel free to explore, extend, and build upon it.
