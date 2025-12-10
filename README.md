@@ -4,6 +4,13 @@ A Django project designed to learn the basics of working with databases, impleme
 
 In addition, the project uses **DataTables** to enhance the display of data in tables, providing interactive features such as search, sorting, and pagination—making it more efficient and user-friendly when managing large datasets.
 
+The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
+
+Available login credentials:
+
+* **User account:** `user` / `@User123`
+* **Admin account:** `admin` / `root`
+
 ## Project Structure
 
 ```plaintext
@@ -317,13 +324,6 @@ $(document).ready(function () {
 ```
 
 --- SQLite
-
-The repository includes a **sample SQLite database (`db.sqlite3`)** with preloaded tables and test data.
-
-Available login credentials:
-
-* **User account:** `user` / `@User123`
-* **Admin account:** `admin` / `root`
 
 ```
 $ python manage.py shell
