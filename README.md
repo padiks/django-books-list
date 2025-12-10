@@ -323,7 +323,9 @@ $(document).ready(function () {
 </html>
 ```
 
---- SQLite
+---
+
+### SQLite
 
 ```
 $ python manage.py shell
