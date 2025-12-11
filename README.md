@@ -176,7 +176,7 @@ from .models import Categories
 class CategoriesForm(forms.ModelForm):
     class Meta:
         model = Categories
-        fields = ['name', 'description']  # no status field here
+        fields = ['name', 'description']
 
         widgets = {
             'name': forms.TextInput(attrs={
@@ -372,15 +372,16 @@ It focuses on:
 * Clear and minimal CRUD patterns
 * Proper app modularization
 * Simple, readable code suitable for beginners
+* **Basic user-based permissions** (Add, Edit, Delete restricted to Admin users)
 
 This project **does not include advanced features** such as:
 
-* User authentication or login systems
-* Role-based or permission-based access control
+* Full authentication or login system beyond basic user checks
+* Role-based or complex permission systems
 * API endpoints
 * Advanced security or production-level configurations
 
-If you require authentication, authorization, or a more complete system setup, you can refer to my other project here:
+If you require a more complete system with authentication, advanced permissions, or additional features, you can refer to my other project here:
 👉 [https://github.com/padiks/django-modular-project](https://github.com/padiks/django-modular-project)
 
 That repository builds on the same modular principles while introducing more advanced Django features.
