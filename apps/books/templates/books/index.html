@@ -7,11 +7,18 @@
 <div class="bg-white shadow-lg rounded-lg p-6 mb-6 max-w-6xl mx-auto">
     <h4 class="text-center text-lg font-semibold mb-4">{{ title }}</h4>
 
-    <div class="flex flex-wrap items-center gap-2 mb-3 relative">
-        <a href="{% url 'books:add' %}" class="bg-green-500 text-white text-xs font-medium px-3 py-1 rounded absolute right-6">
-            Add Book
-        </a>
-    </div>
+	{# Disable "Add Book" button for non-admin users #}
+	<div class="flex flex-wrap items-center gap-2 mb-3 relative">
+		<a href="{% url 'books:add' %}" 
+		   class="bg-green-500 text-white text-xs font-medium px-3 py-1 rounded absolute right-6
+				  {% if not request.user.is_authenticated or not request.user.is_superuser %} 
+					  opacity-50 pointer-events-none cursor-not-allowed
+				  {% else %} 
+					  hover:bg-green-600
+				  {% endif %}">
+			Add Book
+		</a>
+	</div>
 
     <div class="overflow-x-auto text-sm mt-2">
         <table id="itemsTable" class="min-w-full text-left border border-gray-200">
@@ -48,16 +55,23 @@
 							View
 						</a>
 
+						{# Disable "Edit" button for non-admin users #}
 						<a href="{% url 'books:edit' book.id %}"
-						   class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100">
+						   class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded
+								  {% if not request.user.is_authenticated or not request.user.is_superuser %}
+									  opacity-50 pointer-events-none cursor-not-allowed
+								  {% else %}
+									  hover:bg-gray-100
+								  {% endif %}">
 							Edit
 						</a>
-
-						<a href="{% url 'books:delete' book.id %}"
-						   class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100"
-						   onclick="return confirm('Delete this book?');">
-							Delete
-						</a>
+						{% if request.user.is_authenticated and request.user.is_superuser %}
+							<a href="{% url 'books:delete' book.id %}"
+							   class="border border-gray-300 text-gray-700 text-xs px-2 py-0.5 rounded hover:bg-gray-100"
+							   onclick="return confirm('Delete this book?');">
+								Delete
+							</a>
+						{% endif %}
 					</td>
                 </tr>
                 {% empty %}

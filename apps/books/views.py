@@ -1,5 +1,6 @@
 # apps/books/views.py
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseForbidden  # Returns 403 Forbidden when user lacks permission
 from .models import Books
 from .forms import BooksForm
 
@@ -52,7 +53,16 @@ def edit_record(request, pk):
     })
 
 
+# def delete_record(request, pk):
+#    book = get_object_or_404(Books, pk=pk)
+#    book.delete()
+#    return redirect('books:index')
+
 def delete_record(request, pk):
+    # Only allow logged-in superusers (Admin)
+    if not request.user.is_authenticated or not request.user.is_superuser:
+        return HttpResponseForbidden("You are not allowed to delete this book.")
+
     book = get_object_or_404(Books, pk=pk)
     book.delete()
     return redirect('books:index')
