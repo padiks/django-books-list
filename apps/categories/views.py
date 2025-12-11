@@ -1,5 +1,6 @@
 # apps/categories/views.py
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseForbidden  # Returns 403 Forbidden when user lacks permission
 from .models import Categories
 from .forms import CategoriesForm
 
@@ -54,11 +55,24 @@ def edit_record(request, pk):
         'form': form,
     })
 
+# (1)
 # from django.http import HttpResponse
 # def delete_record(request, pk):
 #    return HttpResponse("Delete is temporarily disabled.")
 
+# (2)
+# def delete_record(request, pk):
+#    category = get_object_or_404(Categories, pk=pk)
+#    category.delete()
+#    return redirect('categories:index')
+
+# (3)
+# Only allow logged-in Admin user to delete record
 def delete_record(request, pk):
+    # Only allow logged-in superusers (Admin)
+    if not request.user.is_authenticated or not request.user.is_superuser:
+        return HttpResponseForbidden("You are not allowed to delete this record.")
+
     category = get_object_or_404(Categories, pk=pk)
     category.delete()
     return redirect('categories:index')
